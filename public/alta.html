@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alta de Residuos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Registrar Residuo</h2>
+    <form action="/alta" method="POST">
+      <label>ID Residuo:</label><input type="text" name="id_residuo" required /><br>
+      <label>Tipo:</label><input type="text" name="tipo" required /><br>
+      <label>Cantidad (kg):</label><input type="number" step="0.1" name="cantidad" required /><br>
+      <label>Responsable:</label><input type="text" name="responsable" required /><br>
+      <label>Ubicación:</label><input type="text" name="ubicacion" required /><br>
+      <label>Fecha:</label><input type="date" name="fecha" required /><br>
+      <label>Estado:</label><input type="text" name="estado" required /><br>
+      <button type="submit" class="btn btn-morado mt-3">Registrar</button>
+    </form>
+    <a href="index.html" class="btn btn-secondary mt-3">Volver al menú</a>
+  </div>
+</body>
+</html>

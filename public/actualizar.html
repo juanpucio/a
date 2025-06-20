@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Actualizar Residuo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Actualizar Residuo</h2>
+    <form action="/actualizar" method="POST">
+      <label>ID del Residuo a actualizar:</label><input type="text" name="id_residuo" required /><br>
+      <label>¿Qué quieres actualizar?</label>
+      <select name="campo">
+        <option value="todo">Todo</option>
+        <option value="tipo">Tipo</option>
+        <option value="cantidad">Cantidad</option>
+        <option value="responsable">Responsable</option>
+        <option value="ubicacion">Ubicación</option>
+        <option value="fecha">Fecha</option>
+        <option value="estado">Estado</option>
+      </select><br><br>
+
+      <!-- Campos para actualizar si se elige 'todo' o uno específico -->
+      <label>Nuevo valor:</label><input type="text" name="valor" /><br>
+      <label>Nuevo tipo:</label><input type="text" name="tipo" /><br>
+      <label>Nueva cantidad:</label><input type="number" step="0.1" name="cantidad" /><br>
+      <label>Nuevo responsable:</label><input type="text" name="responsable" /><br>
+      <label>Nueva ubicación:</label><input type="text" name="ubicacion" /><br>
+      <label>Nueva fecha:</label><input type="date" name="fecha" /><br>
+      <label>Nuevo estado:</label><input type="text" name="estado" /><br>
+
+      <button type="submit" class="btn btn-morado mt-3">Actualizar</button>
+    </form>
+    <a href="index.html" class="btn btn-secondary mt-3">Volver al menú</a>
+  </div>
+</body>
+</html>

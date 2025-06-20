@@ -1,0 +1,67 @@
+body {
+  background-color: #2c003e; /* fondo morado oscuro */
+  color: #e0cfff; /* texto claro lila */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3 {
+  color: #d8b4f8; /* morado claro */
+}
+
+.container {
+  background-color: #3a005f; /* contenedor morado más claro */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(220, 170, 255, 0.3);
+}
+
+input, select, textarea {
+  background-color: #4b0082; /* morado intenso */
+  color: white;
+  border: 1px solid #a47dff;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  background-color: #673ab7;
+  box-shadow: 0 0 5px #d8b4f8;
+  outline: none;
+}
+
+.btn-morado {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-morado:hover {
+  background-color: #8e63d9;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #4b0082;
+  border-color: #4b0082;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #673ab7;
+  border-color: #673ab7;
+  color: white;
+}
+
+.table {
+  color: white;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #501a85;
+}
