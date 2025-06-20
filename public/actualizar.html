@@ -3,36 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <title>Actualizar Residuo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h2>Actualizar Residuo</h2>
-    <form action="/actualizar" method="POST">
-      <label>ID del Residuo a actualizar:</label><input type="text" name="id_residuo" required /><br>
-      <label>¿Qué quieres actualizar?</label>
-      <select name="campo">
-        <option value="todo">Todo</option>
-        <option value="tipo">Tipo</option>
-        <option value="cantidad">Cantidad</option>
-        <option value="responsable">Responsable</option>
-        <option value="ubicacion">Ubicación</option>
-        <option value="fecha">Fecha</option>
-        <option value="estado">Estado</option>
-      </select><br><br>
+  <div class="container py-5">
+    <h2 class="mb-4 text-center">Actualizar Residuo</h2>
 
-      <!-- Campos para actualizar si se elige 'todo' o uno específico -->
-      <label>Nuevo valor:</label><input type="text" name="valor" /><br>
-      <label>Nuevo tipo:</label><input type="text" name="tipo" /><br>
-      <label>Nueva cantidad:</label><input type="number" step="0.1" name="cantidad" /><br>
-      <label>Nuevo responsable:</label><input type="text" name="responsable" /><br>
-      <label>Nueva ubicación:</label><input type="text" name="ubicacion" /><br>
-      <label>Nueva fecha:</label><input type="date" name="fecha" /><br>
-      <label>Nuevo estado:</label><input type="text" name="estado" /><br>
+    <form action="/actualizar" method="POST" class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label for="id_residuo" class="form-label">ID del residuo a actualizar:</label>
+        <input type="text" class="form-control" id="id_residuo" name="id_residuo" required />
+      </div>
 
-      <button type="submit" class="btn btn-morado mt-3">Actualizar</button>
+      <div class="mb-3">
+        <label for="campo" class="form-label">¿Qué campo quieres actualizar?</label>
+        <select class="form-select" id="campo" name="campo" required>
+          <option value="" disabled selected>Selecciona un campo</option>
+          <option value="tipo">Tipo</option>
+          <option value="cantidad">Cantidad</option>
+          <option value="responsable">Responsable</option>
+          <option value="ubicacion">Ubicación</option>
+          <option value="fecha">Fecha</option>
+          <option value="estado">Estado</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="valor" id="labelValor" class="form-label">Nuevo valor:</label>
+        <input type="text" class="form-control" id="valor" name="valor" required />
+      </div>
+
+      <button type="submit" class="btn btn-warning w-100">Actualizar</button>
+      <button type="button" id="btnCancelar" class="btn btn-secondary w-100 mt-2">Cancelar</button>
     </form>
-    <a href="index.html" class="btn btn-secondary mt-3">Volver al menú</a>
   </div>
+
+  <script>
+    const campoSelect = document.getElementById('campo');
+    const inputValor = document.getElementById('valor');
+    const labelValor = document.getElementById('labelValor');
+    const btnCancelar = document.getElementById('btnCancelar');
+
+    campoSelect.addEventListener('change', () => {
+      const campoSeleccionado = campoSelect.value;
+      labelValor.textContent = 'Nuevo valor para ' + campoSelect.options[campoSelect.selectedIndex].text + ':';
+
+      if (campoSeleccionado === 'cantidad') {
+        inputValor.type = 'number';
+        inputValor.step = 'any';
+      } else if (campoSeleccionado === 'fecha') {
+        inputValor.type = 'date';
+        inputValor.step = '';
+      } else {
+        inputValor.type = 'text';
+        inputValor.step = '';
+      }
+      inputValor.value = '';
+      inputValor.focus();
+    });
+
+    btnCancelar.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
 </body>
 </html>
